@@ -13,7 +13,7 @@ export default function Conditions() {
         />
         <input type="submit" value="Search" />
       </form>
-      <h1 className="pb-3 pt-3">New York</h1>
+      <h1 className="pb-3 pt-4">New York</h1>
       <h6>Wednesday 7:00AM </h6>
       <h6>Mostly Cloudy</h6>
       <div className="row mt-4">
