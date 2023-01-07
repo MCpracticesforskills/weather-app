@@ -1,8 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
+import axios from "axios";
 
 export default function Conditions() {
+  const apiKey = "b791624f59276c950435fa9627cd9828";
+  let city = "New York";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   return (
     <div className="Conditions">
       <form className="Form">
