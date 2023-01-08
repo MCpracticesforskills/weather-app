@@ -4,23 +4,22 @@ import "./Weather.css";
 import axios from "axios";
 
 export default function Conditions() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       city: response.data.name,
       description: response.data.weather[0].description,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/rain.png",
+      date: "Wednesday 7:00",
     });
-
-    setReady(true);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Conditions">
         <form className="Form">
@@ -32,7 +31,7 @@ export default function Conditions() {
           <input type="submit" value="Search" />
         </form>
         <h1 className="pb-3 pt-4">{weatherData.city}</h1>
-        <h6>Wednesday 7:00AM </h6>
+        <h6>{weatherData.date}</h6>
         <h6 className="text-capitalize">{weatherData.description}</h6>
         <div className="row mt-4">
           <div className="col-6">
@@ -45,7 +44,7 @@ export default function Conditions() {
           </div>
           <div className="col-6">
             <h6>Humidity: {weatherData.humidity}% </h6>
-            <h6>Wind: {weatherData.wind} km/h</h6>
+            <h6>Wind: {Math.round(weatherData.wind)} km/h</h6>
           </div>
         </div>
       </div>
