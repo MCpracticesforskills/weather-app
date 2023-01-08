@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Conditions(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -15,7 +16,7 @@ export default function Conditions(props) {
       city: response.data.name,
       description: response.data.weather[0].description,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/rain.png",
-      date: "Wednesday 7:00",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -31,7 +32,9 @@ export default function Conditions(props) {
           <input type="submit" value="Search" />
         </form>
         <h1 className="pb-3 pt-4">{weatherData.city}</h1>
-        <h6>{weatherData.date}</h6>
+        <h6>
+          <FormattedDate date={weatherData.date} />
+        </h6>
         <h6 className="text-capitalize">{weatherData.description}</h6>
         <div className="row mt-4">
           <div className="col-6">
