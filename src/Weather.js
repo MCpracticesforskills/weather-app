@@ -48,8 +48,10 @@ export default function Conditions(props) {
             placeholder="Search for a city..."
             autoFocus="on"
           />
+
           <input type="submit" value="Search" />
         </form>
+
         <WeatherInfo data={weatherData} />
       </div>
     );
