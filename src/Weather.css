@@ -29,6 +29,7 @@
 .Conditions .degrees {
   font-size: 54px;
   font-weight: 400;
+  padding-left: 8px;
 }
 .Conditions .units {
   font-size: 16px;
