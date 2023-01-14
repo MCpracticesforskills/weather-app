@@ -1,3 +1,7 @@
+.WeatherForecast {
+  padding-top: 24px;
+}
+
 .WeatherForecast-min {
   opacity: 0.7;
 }
